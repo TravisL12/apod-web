@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('./layout'); %>
+
   <body>
     <div class="mars-container">
       <h1>From Mars!</h1>
+      <%- include('./partials/marsCameras'); %>
       <div>
-        <% for (var i =1; i <=10; i++ ) { %>
-        <div class="marsImg"><img src="<%= images[i].img_src %>" /></div>
+        <% for (var i =0; i <=images.length-1; i++ ) { %>
+        <div class="marsImg"><img src="<%= images[i]?.img_src %>" /></div>
         <% } %>
       </div>
     </div>
   </body>
+  <script src="/javascripts/marsPicker.js"></script>
 </html>

@@ -1,0 +1,17 @@
+<div>
+  <form class="mars-cameras-options" id="mars-form">
+    <div>
+      <label>Sol Number</label>
+      <input type="number" id="solInput" value="<%= sol %>" />
+    </div>
+    <% for (var i =0; i <=cameras.length-1; i++ ) { %>
+    <div>
+      <label for="<%= cameras[i].id %>"><%= cameras[i].id %></label>
+      <input name="camera" type="radio" title="<%= cameras[i].description %>"
+      id="<%= cameras[i].id %>" value="<%= cameras[i].id %>" <%= cameras[i].id
+      === camera ? 'checked' : '' %> />
+    </div>
+    <% } %>
+    <div><input type="submit" value="Change Sol" /></div>
+  </form>
+</div>

@@ -8,9 +8,9 @@ a {
   color: #00b7ff;
 }
 
-.mars-container {
+.mars-cameras-options {
   display: flex;
-  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .marsImg {
