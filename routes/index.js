@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
-
-const APOD_API_URL = "https://api.nasa.gov";
-const APOD_PATH = "/planetary/apod";
-const MARS_PATH = "/mars-photos/api/v1/rovers/curiosity/photos";
-const API_KEY = "hPgI2kGa1jCxvfXjv6hq6hsYBQawAqvjMaZNs447";
+const {
+  APOD_API_URL,
+  APOD_PATH,
+  MARS_PATH,
+  API_KEY,
+} = require("../constants.js");
 
 /*
 mars cameras
@@ -36,14 +37,12 @@ async function fetchApod(date) {
   return data;
 }
 
-/* GET home page. */
 router.get("/", async function (req, res, next) {
   const date = req.query.date;
   const resp = await fetchApod(date);
-  res.render("index", { ...resp });
+  res.render("apod", { ...resp });
 });
 
-/* GET home page. */
 router.get("/mars", async function (req, res, next) {
   const resp = await fetchMars();
   res.render("mars", { images: resp });
